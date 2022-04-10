@@ -92,11 +92,12 @@ export default function Allgemein(props) {
         <FormControl>
           <FormLabel id="quereinsteiger-label">Quereinsteiger?</FormLabel>
           <RadioGroup
+                        value={props.data.allg_quereinsteiger.value}
             required
             row
             aria-labelledby="quereinsteiger-label"
             name="quereinsteiger"
-            onChange={(e) => setData({...props.data, allg_quereinsteiger: {value: e.target.value}})}
+            onChange={(e) => props.setData({...props.data, allg_quereinsteiger: {value: e.target.value}})}
           >
             <FormControlLabel value={true} control={<Radio />} label="Ja" />
             <FormControlLabel value={false} control={<Radio />} label="Nein" />
@@ -112,9 +113,11 @@ export default function Allgemein(props) {
           <RadioGroup
             required
             row
+            value={props.data.allg_hochschulabschluss.value}
+
             aria-labelledby="hochschulabschluss-label"
             name="hochschulabschluss"
-            onChange={(e) => setData({...props.data, allg_hochschulabschluss: {value: e.target.value}})}
+            onChange={(e) => props.setData({...props.data, allg_hochschulabschluss: {value: e.target.value}})}
           >
             <FormControlLabel value={true} control={<Radio />} label="Ja" />
             <FormControlLabel value={false} control={<Radio />} label="Nein" />
@@ -128,6 +131,7 @@ export default function Allgemein(props) {
             Entspricht der zukuenftige Taetigkeitsbereich der Studienrichtung?
           </FormLabel>
           <RadioGroup
+            value={false}
             required
             row
             aria-labelledby="taetigkeitsbereich-label"
@@ -152,6 +156,7 @@ export default function Allgemein(props) {
               marks={marks}
               min={1}
               max={6}
+              onChange={(e) => props.setData({...props.data, allg_berufserfahrung: { value: e.target.value > 3 ? true : false}})}
             />
           </Box>
         </FormControl>
@@ -163,10 +168,12 @@ export default function Allgemein(props) {
             Leitungsfunktion vorhanden?
           </FormLabel>
           <RadioGroup
+                      value={props.data.allg_leitungsfunktion.value}
             required
             row
             aria-labelledby="leitungsfunktion-label"
             name="leitungsfunktion"
+            onChange={(e) => props.setData({...props.data, allg_leitungsfunktion: {value: e.target.value === "true" ? true : false}})}
           >
             <FormControlLabel value={true} control={<Radio />} label="Ja" />
             <FormControlLabel value={false} control={<Radio />} label="Nein" />

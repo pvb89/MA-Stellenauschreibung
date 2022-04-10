@@ -31,6 +31,10 @@ export default function SignUp() {
       value: "",
       type: "string",
     },
+    allg_hochschulabschluss: {
+      value: false,
+      type: "boolean",
+    },
     allg_quereinsteiger: {
       value: false,
       type: "boolean",
@@ -40,8 +44,8 @@ export default function SignUp() {
       type: "boolean",
     },
     allg_leitungsfunktion: {
-      value: "",
-      type: "string",
+      value: false,
+      type: "boolean",
     },
     allg_EG10: {
       value: 0,
